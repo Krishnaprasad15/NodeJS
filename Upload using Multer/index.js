@@ -27,7 +27,6 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/profile', upload.single('profilePic'),(req,res,next)=>{
-    // console.log(req.file);
     res.redirect('/')
 } )
 
