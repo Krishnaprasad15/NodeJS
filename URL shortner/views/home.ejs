@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h1{
+            margin-bottom: 50px;
+            font-size: 50px;
+        }
+        div{
+            font-size: 30px;
+        }
+        button{
+            padding: 10px;
+            border-radius: 0.5px;
+            font-size:15px;
+        }
+        input{
+            font-size: 30px;
+        }
+        form{
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>URL SHORTNER</h1>
+    <div>
+        <form method="POST" action="/url">
+            <label>Enter your Original URL :</label>
+            <input type="text" placeholder="https://example.com" name="url">
+            <button type="submit">Genearte</button>
+        </form>
+    </div>
+    <div>
+
+        <% if (locals.id) { %>
+            <P>URL Generated: http://localhost:5000/url/<%= id %> OR <a href="http://localhost:5000/url/<%= id %>" target="_blank">Click Here</a></P>
+            <% } %>
+    </div>
+</body>
+</html>
