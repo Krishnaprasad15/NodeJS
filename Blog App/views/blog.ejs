@@ -13,13 +13,13 @@
         <p><pre class="px-4"><%= blog.body %></pre></p>
     </div>
     <div class="container mt-3">
-        <img src="<%= blog.createdBy.profileImageURL %>" width="50px"   >
+        <img src="<%= blog.createdBy.profileImageURL %>" width="40px">
         <%= blog.createdBy.fullName %>
     </div>
 
     <div class="container mt-3">
+        <h2>Comments (<%= comment.length %>)</h2>
         <% if (locals.user) { %>
-            <h1>Comments</h1>
             <form action="/blog/comment/<%= blog._id %>" method="post">
                 <div class="mb-3">
                     <input type="text" name="content" class="form-control" placeholder="Enter your comment"/>
@@ -27,6 +27,15 @@
                 </div>
             </form>
         <% } %>
+        <div class="mt-3">
+            <% comment.forEach(ele => { %>
+                <div>
+                    <img src="<%= ele.createBy.profileImageURL %>" width="30px">
+                    <%= ele.createBy.fullName %>: 
+                    <pre><%= ele.content %></pre>
+                </div>
+            <% }) %>
+        </div>
     </div>
     <%- include('./partials/script.ejs') %>
 </body>
