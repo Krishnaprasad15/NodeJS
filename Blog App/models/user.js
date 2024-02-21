@@ -1,7 +1,7 @@
 const {Schema,model} = require('mongoose')
 const {createHmac, randomBytes} = require('crypto');
 const { createTokenForUser } = require('../services/authentication');
-const userSchema = Schema({
+const userSchema = new Schema({
     fullName:{
         type:String,
         required:true,
@@ -20,7 +20,7 @@ const userSchema = Schema({
     },
     profileImageURL:{
         type:String,
-        default:'../public/images/default.jpg'
+        default:'/images/default.jpg'
     },
     role:{
         type:String,

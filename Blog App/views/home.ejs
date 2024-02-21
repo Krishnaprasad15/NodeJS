@@ -2,12 +2,26 @@
 <html lang="en">
 <head>
     <%- include('./partials/head.ejs') %> 
-    <title>HOME</title>
+    <title>Blogify</title>
 </head>
 <body>
     <!-- <h1>HELLO</h1> -->
     <%- include("./partials/nav.ejs") %>
-    <%= JSON.stringify(user)%>
+    <div class="container mt-3">
+    <div class="row row-cols-4">
+        <% blogs.forEach(blog => { %>
+            <div class="col">
+                <div class="card col" style="width: 18rem;">
+                    <img src="<%= blog.coverImageURL %>" class="card-img-top" width="100%">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= blog.title %></h5>
+                        <a href="/blog/<%= blog._id %>" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
     <%- include('./partials/script.ejs') %>
 </body>
 </html>
