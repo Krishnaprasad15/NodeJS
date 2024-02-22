@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(checkForAuthenticationCookie('token'))
 app.use(express.static(path.resolve("./public")))
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect('mongodb+srv://krishna:Krishna%4015@cluster0.kz9bkoi.mongodb.net/blogsphere?retryWrites=true&w=majority')
 .then(()=> console.log("MongoDB connected!"))
 .catch((err)=> console.log("mongoDb erroe",err));
 
